@@ -1,1 +1,0 @@
-/usr/bin/cc  -pedantic -Wall -Wextra -Werror -Wno-format-zero-length -Wno-implicit-fallthrough -Wformat -Wformat-security -flto -fstack-protector-all -Wl,-z,relro,-z,now -fPIE -pie -g  -rdynamic CMakeFiles/test_usb_url.dir/test_usb_url.c.o CMakeFiles/test_usb_url.dir/__/lib_util.c.o  -o test_usb_url -pthread 
