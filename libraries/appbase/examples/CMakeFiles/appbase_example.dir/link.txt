@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++14 -Wall  -rdynamic CMakeFiles/appbase_example.dir/main.cpp.o  -o appbase_example ../libappbase.a -ldl -pthread /usr/local/lib/libboost_date_time.a /usr/local/lib/libboost_filesystem.a /usr/local/lib/libboost_system.a /usr/local/lib/libboost_chrono.a /usr/local/lib/libboost_program_options.a /usr/local/lib/libboost_unit_test_framework.a 
