@@ -1,0 +1,11 @@
+{
+    "keys": {
+        "initaPrivateKey": "5JE8Y5g8sj6kSjf9thiXfgj2crDKsWECJ5z2F8hTNCjRZfAbh8c",
+        "initbPrivateKey": "5JE8Y5g8sj6kSjf9thiXfgj2crDKsWECJ5z2F8hTNCjRZfAbh8c"
+    },
+    "nodes": [
+        {"port": 8888, "host": "localhost"},
+        {"port": 8889, "host": "localhost"},
+        {"port": 8890, "host": "localhost"}
+    ]
+}
