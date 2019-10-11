@@ -53,7 +53,7 @@ $ sudo apt-get install clang-4.0 lldb-4.0
 ```
 #### Ubuntu 18.04 domainchain source build
 ```sh
-$ git clone https://github.com/OASISBloc/domainchain.git --recursive
+$ git clone https://github.com/OASISBloc/oasischain.git --recursive
 $ cd domainchain
 $ cmake CMakeLists.txt
 $ sudo make install
