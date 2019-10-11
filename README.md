@@ -51,7 +51,7 @@ $ sudo apt-add-repository "deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty
 $ sudo apt-get update
 $ sudo apt-get install clang-4.0 lldb-4.0
 ```
-#### Ubuntu 18.04 domainchain source build
+#### Ubuntu 18.04 oasischain source build
 ```sh
 $ git clone https://github.com/OASISBloc/oasischain.git --recursive
 $ cd oasischain
