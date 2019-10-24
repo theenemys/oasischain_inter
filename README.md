@@ -4,6 +4,8 @@
 
 [![Build status](https://badge.buildkite.com/370fe5c79410f7d695e4e34c500b4e86e3ac021c6b1f739e20.svg?branch=master)](https://buildkite.com/EOSIO/eosio)
 
+This project is forked from https://github.com/EOSIO/eos
+
 Welcome to the OASISBloc source code repository! 
 OASISBloc is the 1st blockchainized data platform for trading
 useful data and value between real businesses.
