@@ -546,8 +546,8 @@ BOOST_AUTO_TEST_CASE(general)
 
    const char *my_other = R"=====(
     {
-      "publickey"     :  "OSB7YUUvrM5jnH78Hzdvx1f8x77cJMDeYCiYAPcZTvsEMxnFFbq1K",
-      "publickey_arr" :  ["OSB7YUUvrM5jnH78Hzdvx1f8x77cJMDeYCiYAPcZTvsEMxnFFbq1K","OSB7YUUvrM5jnH78Hzdvx1f8x77cJMDeYCiYAPcZTvsEMxnFFbq1K","OSB7YUUvrM5jnH78Hzdvx1f8x77cJMDeYCiYAPcZTvsEMxnFFbq1K"],
+      "publickey"     :  "OSB5srHzsPEsqAE2oj1D7t7XfhYF26m5esRhLcekMd6QW2yESyKuo",
+      "publickey_arr" :  ["OSB5srHzsPEsqAE2oj1D7t7XfhYF26m5esRhLcekMd6QW2yESyKuo","OSB5srHzsPEsqAE2oj1D7t7XfhYF26m5esRhLcekMd6QW2yESyKuo","OSB5srHzsPEsqAE2oj1D7t7XfhYF26m5esRhLcekMd6QW2yESyKuo"],
       "asset"         : "100.0000 SYS",
       "asset_arr"     : ["100.0000 SYS","100.0000 SYS"],
 
@@ -683,22 +683,22 @@ BOOST_AUTO_TEST_CASE(general)
         "delay_sec":0,
         "transaction_extensions": []
       }],
-      "keyweight": {"key":"OSB7YUUvrM5jnH78Hzdvx1f8x77cJMDeYCiYAPcZTvsEMxnFFbq1K", "weight":"100"},
-      "keyweight_arr": [{"key":"OSB7YUUvrM5jnH78Hzdvx1f8x77cJMDeYCiYAPcZTvsEMxnFFbq1K", "weight":"100"},{"key":"OSB7YUUvrM5jnH78Hzdvx1f8x77cJMDeYCiYAPcZTvsEMxnFFbq1K", "weight":"200"}],
+      "keyweight": {"key":"OSB5srHzsPEsqAE2oj1D7t7XfhYF26m5esRhLcekMd6QW2yESyKuo", "weight":"100"},
+      "keyweight_arr": [{"key":"OSB5srHzsPEsqAE2oj1D7t7XfhYF26m5esRhLcekMd6QW2yESyKuo", "weight":"100"},{"key":"OSB5srHzsPEsqAE2oj1D7t7XfhYF26m5esRhLcekMd6QW2yESyKuo", "weight":"200"}],
       "authority": {
          "threshold":"10",
-         "keys":[{"key":"OSB7YUUvrM5jnH78Hzdvx1f8x77cJMDeYCiYAPcZTvsEMxnFFbq1K", "weight":100},{"key":"OSB7YUUvrM5jnH78Hzdvx1f8x77cJMDeYCiYAPcZTvsEMxnFFbq1K", "weight":200}],
+         "keys":[{"key":"OSB5srHzsPEsqAE2oj1D7t7XfhYF26m5esRhLcekMd6QW2yESyKuo", "weight":100},{"key":"OSB5srHzsPEsqAE2oj1D7t7XfhYF26m5esRhLcekMd6QW2yESyKuo", "weight":200}],
          "accounts":[{"permission":{"actor":"acc1","permission":"permname1"},"weight":"1"},{"permission":{"actor":"acc2","permission":"permname2"},"weight":"2"}],
          "waits":[]
        },
       "authority_arr": [{
          "threshold":"10",
-         "keys":[{"key":"OSB7YUUvrM5jnH78Hzdvx1f8x77cJMDeYCiYAPcZTvsEMxnFFbq1K", "weight":"100"},{"key":"OSB7YUUvrM5jnH78Hzdvx1f8x77cJMDeYCiYAPcZTvsEMxnFFbq1K", "weight":"200"}],
+         "keys":[{"key":"OSB5srHzsPEsqAE2oj1D7t7XfhYF26m5esRhLcekMd6QW2yESyKuo", "weight":"100"},{"key":"OSB5srHzsPEsqAE2oj1D7t7XfhYF26m5esRhLcekMd6QW2yESyKuo", "weight":"200"}],
          "accounts":[{"permission":{"actor":"acc1","permission":"permname1"},"weight":"1"},{"permission":{"actor":"acc2","permission":"permname2"},"weight":"2"}],
          "waits":[]
        },{
          "threshold":"10",
-         "keys":[{"key":"OSB7YUUvrM5jnH78Hzdvx1f8x77cJMDeYCiYAPcZTvsEMxnFFbq1K", "weight":"100"},{"key":"OSB7YUUvrM5jnH78Hzdvx1f8x77cJMDeYCiYAPcZTvsEMxnFFbq1K", "weight":"200"}],
+         "keys":[{"key":"OSB5srHzsPEsqAE2oj1D7t7XfhYF26m5esRhLcekMd6QW2yESyKuo", "weight":"100"},{"key":"OSB5srHzsPEsqAE2oj1D7t7XfhYF26m5esRhLcekMd6QW2yESyKuo", "weight":"200"}],
          "accounts":[{"permission":{"actor":"acc1","permission":"permname1"},"weight":"1"},{"permission":{"actor":"acc2","permission":"permname2"},"weight":"2"}],
          "waits":[]
        }],

@@ -879,7 +879,7 @@ launcher_def::bind_nodes () {
          node.name = inst.name;
          node.instance = &inst;
          auto kp = is_bios ?
-            private_key_type(string("5JE8Y5g8sj6kSjf9thiXfgj2crDKsWECJ5z2F8hTNCjRZfAbh8c")) :
+            private_key_type(string("5Jhj8fBiZXQ728FJM3HjapMYKgkvG7HVB66C6xjtPwyfsZ7BXyz")) :
             private_key_type::generate();
          auto pubkey = kp.get_public_key();
          node.keys.emplace_back (move(kp));

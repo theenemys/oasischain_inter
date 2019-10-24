@@ -62,13 +62,13 @@ $ ./nodeos -d ~/eos.data/generator_node --config-dir ~/eos.data/generator_node -
 ### Create a wallet on the non-producer and set bios contract
 ```bash
 $ ./cleos wallet create --to-console
-$ ./cleos wallet import --private-key 5JE8Y5g8sj6kSjf9thiXfgj2crDKsWECJ5z2F8hTNCjRZfAbh8c
+$ ./cleos wallet import --private-key 5Jhj8fBiZXQ728FJM3HjapMYKgkvG7HVB66C6xjtPwyfsZ7BXyz
 $ ./cleos set contract eosio ~/eos/build.release/contracts/eosio.bios/ 
 ```
 
 ### Initialize the accounts txn_test_gen_plugin uses
 ```bash
-$ curl --data-binary '["eosio", "5JE8Y5g8sj6kSjf9thiXfgj2crDKsWECJ5z2F8hTNCjRZfAbh8c"]' http://127.0.0.1:8888/v1/txn_test_gen/create_test_accounts
+$ curl --data-binary '["eosio", "5Jhj8fBiZXQ728FJM3HjapMYKgkvG7HVB66C6xjtPwyfsZ7BXyz"]' http://127.0.0.1:8888/v1/txn_test_gen/create_test_accounts
 ```
 
 ### Start transaction generation, this will submit 20 transactions evey 20ms (total of 1000TPS)

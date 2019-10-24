@@ -17,7 +17,7 @@ delay=1
 read -d '' genesis << EOF
 {
   "initial_timestamp": "2018-06-01T12:00:00.000",
-  "initial_key": "OSB7YUUvrM5jnH78Hzdvx1f8x77cJMDeYCiYAPcZTvsEMxnFFbq1K",
+  "initial_key": "OSB5srHzsPEsqAE2oj1D7t7XfhYF26m5esRhLcekMd6QW2yESyKuo",
   "initial_configuration": {
     "max_block_net_usage": 1048576,
     "target_block_net_usage_pct": 1000,
@@ -49,7 +49,7 @@ http-server-address = 127.0.0.1:8888
 blocks-dir = blocks
 p2p-listen-endpoint = 0.0.0.0:9876
 allowed-connection = any
-private-key = ['OSB7YUUvrM5jnH78Hzdvx1f8x77cJMDeYCiYAPcZTvsEMxnFFbq1K','5JE8Y5g8sj6kSjf9thiXfgj2crDKsWECJ5z2F8hTNCjRZfAbh8c']
+private-key = ['OSB5srHzsPEsqAE2oj1D7t7XfhYF26m5esRhLcekMd6QW2yESyKuo','5Jhj8fBiZXQ728FJM3HjapMYKgkvG7HVB66C6xjtPwyfsZ7BXyz']
 send-whole-blocks = true
 readonly = 0
 p2p-max-nodes-per-host = 10

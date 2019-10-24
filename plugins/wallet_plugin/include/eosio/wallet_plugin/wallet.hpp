@@ -157,7 +157,7 @@ class soft_wallet final : public wallet_api
 
       /** Imports a WIF Private Key into the wallet to be used to sign transactions by an account.
        *
-       * example: import_key 5JE8Y5g8sj6kSjf9thiXfgj2crDKsWECJ5z2F8hTNCjRZfAbh8c
+       * example: import_key 5Jhj8fBiZXQ728FJM3HjapMYKgkvG7HVB66C6xjtPwyfsZ7BXyz
        *
        * @param wif_key the WIF Private Key to import
        */
@@ -165,7 +165,7 @@ class soft_wallet final : public wallet_api
 
       /** Removes a key from the wallet.
        *
-       * example: remove_key OSB7YUUvrM5jnH78Hzdvx1f8x77cJMDeYCiYAPcZTvsEMxnFFbq1K
+       * example: remove_key OSB5srHzsPEsqAE2oj1D7t7XfhYF26m5esRhLcekMd6QW2yESyKuo
        *
        * @param key the Public Key to remove
        */

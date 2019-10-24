@@ -276,7 +276,7 @@ const uint32_t faucet_testnet_plugin_impl::_default_create_interval_msec = 1000;
 const uint32_t faucet_testnet_plugin_impl::_default_create_alternates_to_return = 3;
 const std::string faucet_testnet_plugin_impl::_default_create_account_name = "faucet";
 // defaults to the public/private key of init accounts in private testnet genesis.json
-const key_pair faucet_testnet_plugin_impl::_default_key_pair = {"OSB7YUUvrM5jnH78Hzdvx1f8x77cJMDeYCiYAPcZTvsEMxnFFbq1K", "5JE8Y5g8sj6kSjf9thiXfgj2crDKsWECJ5z2F8hTNCjRZfAbh8c"};
+const key_pair faucet_testnet_plugin_impl::_default_key_pair = {"OSB5srHzsPEsqAE2oj1D7t7XfhYF26m5esRhLcekMd6QW2yESyKuo", "5Jhj8fBiZXQ728FJM3HjapMYKgkvG7HVB66C6xjtPwyfsZ7BXyz"};
 
 
 faucet_testnet_plugin::faucet_testnet_plugin()
