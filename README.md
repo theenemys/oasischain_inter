@@ -74,6 +74,7 @@ OASISBloc currently supports the following operating systems:
 ## Resources
 1. [Website](https://www.oasisbloc.io/)
 1. [Community Telegram Group](https://t.me/oasisbloc)
+1. [Wallet](https://wallet.oasisbloc.io/)
 
 
 ## License
