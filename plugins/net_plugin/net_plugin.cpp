@@ -2281,6 +2281,8 @@ namespace eosio {
             return;
          }*/
 
+         printf("\n  11111111111111111111111111111111  \n");
+
          c->protocol_version = to_protocol_version(msg.network_version);
          if(c->protocol_version != net_version) {
             if (network_version_match) {
@@ -2294,15 +2296,21 @@ namespace eosio {
             }
          }
 
+         printf("\n  222222222222222222222222222222  \n");
+
          if(  c->node_id != msg.node_id) {
             c->node_id = msg.node_id;
          }
+
+         printf("\n  3333333333333333333333333333  \n");
 
          if(!authenticate_peer(msg)) {
             fc_elog( logger, "Peer not authenticated.  Closing connection." );
             c->enqueue(go_away_message(authentication));
             return;
          }
+
+         printf("\n  4444444444444444444444444444444444  \n");
 
          bool on_fork = false;
          fc_dlog(logger, "lib_num = ${ln} peer_lib = ${pl}",("ln",lib_num)("pl",peer_lib));
@@ -2327,10 +2335,14 @@ namespace eosio {
             }
          }
 
+         printf("\n  555555555555555555555555555555  \n");
+
          if (c->sent_handshake_count == 0) {
             c->send_handshake();
          }
       }
+
+      printf("\n  6666666666666666666666666666  \n");
 
       c->last_handshake_recv = msg;
       c->_logger_variant.reset();
