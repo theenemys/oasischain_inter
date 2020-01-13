@@ -2330,6 +2330,9 @@ namespace eosio {
             }
             if( on_fork) {
                fc_elog( logger, "Peer chain is forked" );
+
+               printf("\n  Peer chain is forked \n");
+
                c->enqueue( go_away_message( forked ));
                return;
             }
