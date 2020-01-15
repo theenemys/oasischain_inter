@@ -2365,14 +2365,13 @@ namespace eosio {
       printf("\n  6666666666666666666666666666  \n");
 
       c->last_handshake_recv = msg;
+      c->_logger_variant.reset();
+      sync_master->recv_handshake(c,msg);
 
       // Test by wschoi
       //if(msg.ibc_connection == 7)
-         printf("\n------------------------ IBC Connection Value %d ---------------------------\n", msg.ibc_connection);
+         printf("\n------------------------ IBC Connection Value %d ---------------------------\n", c->last_handshake_recv.ibc_connection);
 
-
-      c->_logger_variant.reset();
-      sync_master->recv_handshake(c,msg);
    }
 
    void net_plugin_impl::handle_message(const connection_ptr& c, const go_away_message& msg) {
