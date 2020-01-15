@@ -918,7 +918,7 @@ namespace eosio {
       last_handshake_sent.generation = ++sent_handshake_count;
 
       // By wschoi
-      last_handshake_sent.ibc_connection = 6;
+      last_handshake_sent.ibc_connection = 0;
       printf("\n ------------------ Send last_handshake_sent.ibc_connection: %d ----------------------\n", last_handshake_sent.ibc_connection);
 
       fc_dlog(logger, "Sending handshake generation ${g} to ${ep}",
@@ -2291,7 +2291,8 @@ namespace eosio {
          }
 
          // By wschoi
-         if( msg.chain_id != chain_id) {
+         if( msg.chain_id != chain_id && msg.ibc_connection != 1) {
+         //if( msg.chain_id != chain_id) {   // Origin by wschoi
             fc_elog( logger, "Peer on a different chain. Closing connection" );
             c->enqueue( go_away_message(go_away_reason::wrong_chain) );
             return;
@@ -2346,11 +2347,14 @@ namespace eosio {
             }
             if( on_fork) {
                fc_elog( logger, "Peer chain is forked" );
-
-               // Disabled to test by wschoi
+               
                printf("\n  Peer chain is forked \n");
-               c->enqueue( go_away_message( forked ));
-               return;
+
+               // Add "if" condition by wschoi
+               if(msg.ibc_connection != 1) {
+                  c->enqueue( go_away_message( forked ));
+                  return;
+               }
 
             }
          }
@@ -2367,11 +2371,6 @@ namespace eosio {
       c->last_handshake_recv = msg;
       c->_logger_variant.reset();
       sync_master->recv_handshake(c,msg);
-
-      // Test by wschoi
-      //if(msg.ibc_connection == 7)
-        // printf("\n------------------------ Receive last_handshake_sent.ibc_connection: %d ---------------------------\n", msg.ibc_connection);
-
    }
 
    void net_plugin_impl::handle_message(const connection_ptr& c, const go_away_message& msg) {
