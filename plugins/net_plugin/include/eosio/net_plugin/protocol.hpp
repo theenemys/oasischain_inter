@@ -37,6 +37,10 @@ namespace eosio {
       string                     os;
       string                     agent;
       int16_t                    generation;
+
+      // By wschoi
+      uint32_t                   ibc_connection;                  
+
    };
 
 

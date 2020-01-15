@@ -916,6 +916,10 @@ namespace eosio {
    void connection::send_handshake() {
       handshake_initializer::populate(last_handshake_sent);
       last_handshake_sent.generation = ++sent_handshake_count;
+
+      // By wschoi
+      last_handshake_sent.ibc_connection = 7;
+
       fc_dlog(logger, "Sending handshake generation ${g} to ${ep}",
               ("g",last_handshake_sent.generation)("ep", peer_name()));
       enqueue(last_handshake_sent);
@@ -2241,6 +2245,17 @@ namespace eosio {
       if( c->connecting ) {
          c->connecting = false;
       }
+
+
+
+      // Test by wschoi
+      if(msg.ibc_connection == 7)
+         ilog("------------------------ IBC Connection ---------------------------");
+
+
+
+
+
       if (msg.generation == 1) {
          if( msg.node_id == node_id) {
             fc_elog( logger, "Self connection detected. Closing connection" );
