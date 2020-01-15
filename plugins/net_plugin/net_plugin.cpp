@@ -2365,6 +2365,12 @@ namespace eosio {
       printf("\n  6666666666666666666666666666  \n");
 
       c->last_handshake_recv = msg;
+
+      // Test by wschoi
+      //if(msg.ibc_connection == 7)
+         printf("\n------------------------ IBC Connection Value %d ---------------------------\n", msg.ibc_connection);
+
+
       c->_logger_variant.reset();
       sync_master->recv_handshake(c,msg);
    }
