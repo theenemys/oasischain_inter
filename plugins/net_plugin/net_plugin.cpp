@@ -2250,8 +2250,8 @@ namespace eosio {
 
 
       // Test by wschoi
-      if(msg.ibc_connection == 7)
-         printf("\n------------------------ IBC Connection ---------------------------\n");
+      //if(msg.ibc_connection == 7)
+         printf("\n------------------------ IBC Connection Value %d ---------------------------\n", msg.ibc_connection);
 
 
 
