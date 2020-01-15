@@ -157,7 +157,8 @@ FC_REFLECT( eosio::handshake_message,
             (time)(token)(sig)(p2p_address)
             (last_irreversible_block_num)(last_irreversible_block_id)
             (head_num)(head_id)
-            (os)(agent)(generation) )
+            (os)(agent)(generation)
+            (ibc_connection) ) // by wschoi
 FC_REFLECT( eosio::go_away_message, (reason)(node_id) )
 FC_REFLECT( eosio::time_message, (org)(rec)(xmt)(dst) )
 FC_REFLECT( eosio::notice_message, (known_trx)(known_blocks) )
