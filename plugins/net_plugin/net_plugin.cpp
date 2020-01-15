@@ -918,7 +918,7 @@ namespace eosio {
       last_handshake_sent.generation = ++sent_handshake_count;
 
       // By wschoi
-      last_handshake_sent.ibc_connection = 7;
+      last_handshake_sent.ibc_connection = 6;
       printf("\n ------------------ Send last_handshake_sent.ibc_connection: %d ----------------------\n", last_handshake_sent.ibc_connection);
 
       fc_dlog(logger, "Sending handshake generation ${g} to ${ep}",
