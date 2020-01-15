@@ -919,6 +919,7 @@ namespace eosio {
 
       // By wschoi
       last_handshake_sent.ibc_connection = 7;
+      printf("\n ------------------ Send ibc_connection data ----------------------\n");
 
       fc_dlog(logger, "Sending handshake generation ${g} to ${ep}",
               ("g",last_handshake_sent.generation)("ep", peer_name()));
@@ -2250,7 +2251,7 @@ namespace eosio {
 
       // Test by wschoi
       if(msg.ibc_connection == 7)
-         ilog("------------------------ IBC Connection ---------------------------");
+         printf("\n------------------------ IBC Connection ---------------------------\n");
 
 
 
