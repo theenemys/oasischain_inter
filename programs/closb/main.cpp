@@ -2603,7 +2603,7 @@ int main( int argc, char** argv ) {
       //by wschoi
       auto res = result.as<eosio::chain_apis::read_only::get_table_rows_result>();
     //  std::cerr << "---------------- Test get table data " << res.rows[0].get_object()["account"].as_string() << std::endl;
-      std::cout << "---------------- Test get table data " << res.rows[0].get_object()["osbAmount"].as_uint64() << std::endl;
+    //  std::cout << "---------------- Test get table data " << res.rows[0].get_object()["osbAmount"].as_uint64() << std::endl;
 
      ibc_data *idt = ibc_data::getInstance();
      // idt->setOsbAmount(res.rows[0].get_object()["osbAmount"].as_uint64());
