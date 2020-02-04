@@ -28,6 +28,10 @@
 #include <boost/asio/ip/host_name.hpp>
 #include <boost/asio/steady_timer.hpp>
 
+
+#include <eosio/chain/ibc_data.hpp> // by wschoi
+
+
 using namespace eosio::chain::plugin_interface::compat;
 
 namespace eosio {
@@ -917,9 +921,21 @@ namespace eosio {
       handshake_initializer::populate(last_handshake_sent);
       last_handshake_sent.generation = ++sent_handshake_count;
 
+
+
       // By wschoi
       last_handshake_sent.ibc_connection = 1;
-      printf("\n ------------------ Send last_handshake_sent.ibc_connection: %d ----------------------\n", last_handshake_sent.ibc_connection);
+
+      ibc_data *idt = ibc_data::getInstance();
+     // idt->setOsbAmount(res.rows[0].get_object()["osbAmount"].as_uint64());
+     //idt->setOsbAmount(7);
+
+     //std::cout << "get OSB Amount" << idt->getOsbAmount() << "\n";
+
+      printf("\n ------------------ Send last_handshake_sent.ibc_connection: %d, get OSB Amount: %d ----------------------\n", last_handshake_sent.ibc_connection, idt->getOsbAmount());
+
+
+
 
       fc_dlog(logger, "Sending handshake generation ${g} to ${ep}",
               ("g",last_handshake_sent.generation)("ep", peer_name()));

@@ -120,6 +120,8 @@ Options:
 
 #include <fc/io/fstream.hpp>
 
+#include <eosio/chain/ibc_data.hpp> // by wschoi
+
 #include "CLI11.hpp"
 #include "help_text.hpp"
 #include "localize.hpp"
@@ -2535,6 +2537,91 @@ int main( int argc, char** argv ) {
       std::cout << fc::json::to_pretty_string(unpacked_action_data_json) << std::endl;
    });
 
+
+
+
+
+   // Transfer subcommand by wschoi
+   auto ibctransfer = app.add_subcommand("ibctransfer", localized("transfer to other blockchains"), false);
+   ibctransfer->require_subcommand();
+
+   // transfer dat by wschoi
+   string scope2;
+   string code2;
+   string table2;
+   string lower2;
+   string upper2;
+   string table_key2;
+   string key_type2;
+   string encode_type2{"dec"};
+   bool binary2 = false;
+   uint32_t limit2 = 10;
+   string index_position2;
+   bool reverse2 = false;
+   bool show_payer2 = false;
+   auto getTable2 = ibctransfer->add_subcommand( "tokendat", localized("Retrieve the contents of a database table"), false);
+   getTable2->add_option( "account", code2, localized("The account who owns the table") )->required();
+   getTable2->add_option( "scope", scope2, localized("The scope within the contract in which the table is found") )->required();
+   getTable2->add_option( "table", table2, localized("The name of the table as specified by the contract abi") )->required();
+   getTable2->add_option( "-b,--binary", binary2, localized("Return the value as BINARY rather than using abi to interpret as JSON") );
+   getTable2->add_option( "-l,--limit", limit2, localized("The maximum number of rows to return") );
+   getTable2->add_option( "-k,--key", table_key2, localized("Deprecated") );
+   getTable2->add_option( "-L,--lower", lower2, localized("JSON representation of lower bound value of key, defaults to first") );
+   getTable2->add_option( "-U,--upper", upper2, localized("JSON representation of upper bound value of key, defaults to last") );
+   getTable2->add_option( "--index", index_position2,
+                         localized("Index number, 1 - primary (first), 2 - secondary index (in order defined by multi_index), 3 - third index, etc.\n"
+                                   "\t\t\t\tNumber or name of index can be specified, e.g. 'secondary' or '2'."));
+   getTable2->add_option( "--key-type", key_type2,
+                         localized("The key type of --index, primary only supports (i64), all others support (i64, i128, i256, float64, float128, ripemd160, sha256).\n"
+                                   "\t\t\t\tSpecial type 'name' indicates an account name."));
+   getTable2->add_option( "--encode-type", encode_type2,
+                         localized("The encoding type of key_type (i64 , i128 , float64, float128) only support decimal encoding e.g. 'dec'"
+                                    "i256 - supports both 'dec' and 'hex', ripemd160 and sha256 is 'hex' only"));
+   getTable2->add_flag("-r,--reverse", reverse2, localized("Iterate in reverse order"));
+   getTable2->add_flag("--show-payer", show_payer2, localized("show RAM payer"));
+
+
+   getTable2->set_callback([&] {
+      auto result = call(get_table_func, fc::mutable_variant_object("json", !binary2)
+                         ("code",code2)
+                         ("scope",scope2)
+                         ("table",table2)
+                         ("table_key",table_key2) // not used
+                         ("lower_bound",lower2)
+                         ("upper_bound",upper2)
+                         ("limit",limit2)
+                         ("key_type",key_type2)
+                         ("index_position", index_position2)
+                         ("encode_type", encode_type2)
+                         ("reverse", reverse2)
+                         ("show_payer", show_payer2)
+                         );
+
+      std::cout << fc::json::to_pretty_string(result)
+                << std::endl;
+
+      //by wschoi
+      auto res = result.as<eosio::chain_apis::read_only::get_table_rows_result>();
+    //  std::cerr << "---------------- Test get table data " << res.rows[0].get_object()["account"].as_string() << std::endl;
+      std::cout << "---------------- Test get table data " << res.rows[0].get_object()["osbAmount"].as_uint64() << std::endl;
+
+     ibc_data *idt = ibc_data::getInstance();
+     // idt->setOsbAmount(res.rows[0].get_object()["osbAmount"].as_uint64());
+     idt->setOsbAmount(7);
+
+     //std::cout << "get OSB Amount" << idt->getOsbAmount() << "\n";
+
+   
+   });
+
+   /*ibctransfer->add_subcommand("tokendat", localized("transfer dat token to other blockchains"))->set_callback([] {
+      std::cout << "-------------------- transfer dat token to other blockchains -----------------------" << std::endl;
+   });*/
+
+
+
+
+
    // Get subcommand
    auto get = app.add_subcommand("get", localized("Retrieve various items and information from the blockchain"), false);
    get->require_subcommand();
@@ -3395,15 +3482,23 @@ int main( int argc, char** argv ) {
    // push action
    string contract_account;
    string action;
-   string data;
+   string data;/* = "[tokenswap.io,7]";*/ // by wschoi
    vector<string> permissions;
+
+   // By wschoi
+   data.append("[");
+   data.append("tokenswap.io");
+   data.append(",");
+   data.append("8");
+   data.append("]");
+
    auto actionsSubcommand = push->add_subcommand("action", localized("Push a transaction with a single action"));
    actionsSubcommand->fallthrough(false);
    actionsSubcommand->add_option("account", contract_account,
                                  localized("The account providing the contract to execute"), true)->required();
    actionsSubcommand->add_option("action", action,
                                  localized("A JSON string or filename defining the action to execute on the contract"), true)->required();
-   actionsSubcommand->add_option("data", data, localized("The arguments to the contract"))->required();
+   actionsSubcommand->add_option("data", data, localized("The arguments to the contract"))/*->required()*/; // by wschoi
 
    add_standard_transaction_options(actionsSubcommand);
    actionsSubcommand->set_callback([&] {
@@ -3417,6 +3512,13 @@ int main( int argc, char** argv ) {
 
       send_actions({chain::action{accountPermissions, contract_account, action, variant_to_bin( contract_account, action, action_args_var ) }});
    });
+
+
+
+   // Test by wschoi
+   std::cout << "---------------- Test push data " << data << std::endl;
+
+
 
    // push transaction
    string trx_to_push;

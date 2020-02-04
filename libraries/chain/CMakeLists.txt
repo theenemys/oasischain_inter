@@ -52,6 +52,9 @@ add_library( eosio_chain
              genesis_intrinsics.cpp
              whitelisted_intrinsics.cpp
              thread_utils.cpp
+
+             ibc_data.cpp # by wschoi
+
              ${HEADERS}
              )
 
