@@ -3170,6 +3170,7 @@ namespace eosio {
     *  Used to trigger a new connection from RPC API
     */
    string net_plugin::connect( const string& host ) {
+      
       if( my->find_connection( host ) )
          return "already connected";
 
@@ -3209,6 +3210,29 @@ namespace eosio {
       }
       return result;
    }
+
+   // Test by wschoi
+   string net_plugin::net_test( const int& count ) {
+
+      string str;
+
+      string str_2 = to_string(count);
+
+      str.assign("net_test function executed: ");
+
+      str.append(str_2);
+
+
+      ibc_data *idt = ibc_data::getInstance();
+
+      idt->setOsbAmount(count);
+
+      
+      return str;//"net_test function executed";
+   
+   }
+
+
    connection_ptr net_plugin_impl::find_connection(const string& host )const {
       for( const auto& c : connections )
          if( c->peer_addr == host ) return c;

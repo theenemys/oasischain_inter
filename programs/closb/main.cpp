@@ -3272,6 +3272,18 @@ int main( int argc, char** argv ) {
    });
 
 
+   // Test by wschoi
+   //string val = "dylan";
+   int val;
+   auto netTest = net->add_subcommand("net_test", localized("net_test"), false);
+   netTest->add_option("value", val, localized("Integer value"))->required();
+   netTest->set_callback([&] {
+      const auto& v = call(url, net_test, val);
+      std::cout << fc::json::to_pretty_string(v) << std::endl;
+   });
+
+
+
 
    // Wallet subcommand
    auto wallet = app.add_subcommand( "wallet", localized("Interact with local wallet"), false );

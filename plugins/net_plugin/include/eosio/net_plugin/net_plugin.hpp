@@ -38,6 +38,9 @@ namespace eosio {
         optional<connection_status>  status( const string& endpoint )const;
         vector<connection_status>    connections()const;
 
+        // Test by wschoi
+        string                       net_test( const int& count );
+
         size_t num_peers() const;
       private:
         std::unique_ptr<class net_plugin_impl> my;
