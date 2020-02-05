@@ -81,6 +81,8 @@ void net_api_plugin::plugin_startup() {
        // Test by wschoi
        CALL(net, net_mgr, net_test,
             INVOKE_R_R(net_mgr, net_test, int), 201),
+       CALL(net, net_mgr, net_test_read,
+            INVOKE_R_R(net_mgr, net_test_read, int), 201),
 
 
     //   CALL(net, net_mgr, open,

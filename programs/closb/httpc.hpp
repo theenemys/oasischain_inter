@@ -117,8 +117,13 @@ namespace eosio { namespace client { namespace http {
    const string net_connections = net_func_base + "/connections";
 
 
+
    // Test by wschoi
    const string net_test = net_func_base + "/net_test";
+   const string net_test_read = net_func_base + "/net_test_read";
+
+
+
 
 
    const string wallet_func_base = "/v1/wallet";

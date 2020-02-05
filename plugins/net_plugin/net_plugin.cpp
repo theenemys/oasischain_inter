@@ -2271,7 +2271,12 @@ namespace eosio {
 
       // Test by wschoi
       //if(msg.ibc_connection == 7)
-         printf("\n------------------------ Receive last_handshake_sent.ibc_num: %d ---------------------------\n", msg.ibc_num);
+
+      ibc_data *idt = ibc_data::getInstance();
+
+      idt->setDatAmount(msg.ibc_num);
+
+      printf("\n------------------------ Receive last_handshake_sent.ibc_num: %d ---------------------------\n", msg.ibc_num);
 
 
 
@@ -3234,6 +3239,15 @@ namespace eosio {
       
       return str;//"net_test function executed";
    
+   }
+
+   // Test by wschoi
+   int net_plugin::net_test_read(const int& count) {
+
+      ibc_data *idt = ibc_data::getInstance();
+
+      return idt->getDatAmount();
+
    }
 
 

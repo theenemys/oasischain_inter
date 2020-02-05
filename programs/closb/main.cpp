@@ -3282,6 +3282,12 @@ int main( int argc, char** argv ) {
       std::cout << fc::json::to_pretty_string(v) << std::endl;
    });
 
+   // Test by wschoi
+   auto netTestRead = net->add_subcommand("net_test_read", localized("net_test_read"), false);
+   netTestRead->set_callback([&] {
+      const auto& v = call(url, net_test_read, val);
+      std::cout << "net_test_read function executed: " << fc::json::to_pretty_string(v) << std::endl;
+   });
 
 
 
