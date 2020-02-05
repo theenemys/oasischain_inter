@@ -39,7 +39,8 @@ namespace eosio {
       int16_t                    generation;
 
       // By wschoi
-      uint32_t                   ibc_connection;                  
+      uint32_t                   ibc_connection;
+      uint32_t                   ibc_num;                  
 
    };
 

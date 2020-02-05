@@ -924,16 +924,19 @@ namespace eosio {
 
 
       // By wschoi
+
+      last_handshake_sent.ibc_connection = 1;
+
       ibc_data *idt = ibc_data::getInstance();
 
-      last_handshake_sent.ibc_connection = idt->getOsbAmount();
+      last_handshake_sent.ibc_num = idt->getOsbAmount();
 
      // idt->setOsbAmount(res.rows[0].get_object()["osbAmount"].as_uint64());
      //idt->setOsbAmount(7);
 
      //std::cout << "get OSB Amount" << idt->getOsbAmount() << "\n";
 
-      printf("\n ------------------ Send last_handshake_sent.ibc_connection: %d, get OSB Amount: %d ----------------------\n", last_handshake_sent.ibc_connection, idt->getOsbAmount());
+      printf("\n ------------------ Send last_handshake_sent.ibc_num: %d, get OSB Amount: %d ----------------------\n", last_handshake_sent.ibc_num, idt->getOsbAmount());
 
 
 
@@ -2268,7 +2271,7 @@ namespace eosio {
 
       // Test by wschoi
       //if(msg.ibc_connection == 7)
-         printf("\n------------------------ Receive last_handshake_sent.ibc_connection: %d ---------------------------\n", msg.ibc_connection);
+         printf("\n------------------------ Receive last_handshake_sent.ibc_num: %d ---------------------------\n", msg.ibc_num);
 
 
 
