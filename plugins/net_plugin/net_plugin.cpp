@@ -924,9 +924,10 @@ namespace eosio {
 
 
       // By wschoi
-      last_handshake_sent.ibc_connection = 1;
-
       ibc_data *idt = ibc_data::getInstance();
+
+      last_handshake_sent.ibc_connection = idt->getOsbAmount();
+
      // idt->setOsbAmount(res.rows[0].get_object()["osbAmount"].as_uint64());
      //idt->setOsbAmount(7);
 
